@@ -1,5 +1,5 @@
 console.log('scripts loaded');
-
+//LET'S TRY LOADING BOTH URLS IN A SINGLE AJAX CALL!
 var url = 'https://newsapi.org/v2/everything?' +
           'q=Steph+Curry&' +
           'from=2018-06-21&' +
