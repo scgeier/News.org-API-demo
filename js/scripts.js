@@ -14,18 +14,26 @@ var url2 = 'https://newsapi.org/v2/everything?' +
           'language=en&' +
           'apiKey=16ad35cdcef340e9bd1565c244e4ff1f';
 
+var urlArray = [url, url2];
+
+
 var data = [];
-var data2 = [];
+//var data2 = [];
 var articles = [];
-var beatleArticles = [];
+//var beatleArticles = [];
 var html = '';
-var html2 = '';
+//var html2 = '';
+var i ='';
 
 $(document).ready(function(){
         console.log("document ready");
+        console.log(urlArray);
+//LOOP THROUGH THE ARRAY OF URLs
+    for (i=0;i<urlArray.length; i++){
+//ON EACH URL, MAKE THE AJAX CALL TO LOAD THE DATA ASSOCIATED WITH THAT URL
         $.ajax({
           type: 'GET',
-          url: url,
+          url: urlArray[i],
           data: data,
           async: true,
           dataType: 'json',
@@ -33,12 +41,11 @@ $(document).ready(function(){
               console.log(data.articles);
               articles = data.articles;
 
-              $(".warriors").append('<h1>Steph Curry News</h1>');
-
+              $(".warriors").append('<h1>Latest News</h1>');
+//BUILD THE CARDS USING THE DATA FOR EACH ARTICLE
               articles.forEach(function(article){
 
                   console.log(article.title);
-
 
                     html += '<div class="latest-news flex">';
                     html += '<img class="thumbnail" src="' + article.urlToImage + '">';
@@ -46,12 +53,16 @@ $(document).ready(function(){
                     html +=  '<h2 class="headline">' + article.title + '</h2>';
                     html +=  '<h4 class="byline">by ' + article.author + ', <em>' + article.source.name + '</em></h4>';
                     html +=   '</a></div>';
-                  });
-              $(".warriors").append(html);
-              }
-            });
 
-            $.ajax({
+                  });
+//LOAD THE HTML INTO THE EMPTY DIV
+                    $(".warriors").html(html);
+
+            }
+      });
+    }
+
+            /*$.ajax({
               type: 'GET',
               url: url2,
               data: data2,
@@ -77,7 +88,7 @@ $(document).ready(function(){
                       });
                   $(".beatles").append(html2);
                   }
-                });
+                });*/
 
 
 
