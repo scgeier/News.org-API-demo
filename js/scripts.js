@@ -57,6 +57,8 @@ $(document).ready(function(){
                   });
 //LOAD THE HTML INTO THE EMPTY DIV
                     $(".warriors").html(html);
+//THE .APPEND() AND .PREPEND() METHODS WERE CAUSING IT TO LOAD ONE OF THE SETS
+//SETS OF ARTICLES TWICE. WEIRD. I HAD TO USE .HTML() OR .EMPTY().APPEND(html)
 
             }
       });
