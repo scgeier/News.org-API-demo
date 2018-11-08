@@ -1,18 +1,19 @@
 console.log('scripts loaded');
+var mykey = config.MY_KEY;
 //LET'S TRY LOADING BOTH URLS IN A SINGLE AJAX CALL!
 var url = 'https://newsapi.org/v2/everything?' +
-          'q=Steph+Curry&' +
-          'from=2018-06-21&' +
+          'q=LeBron+James&' +
+          'from=2018-10-21&' +
           'sortBy=popularity&' +
           'language=en&' +
-          'apiKey=16ad35cdcef340e9bd1565c244e4ff1f';
+           myKey;
 
 var url2 = 'https://newsapi.org/v2/everything?' +
           'q=Beatles+Lennon+McCartney&' +
-          'from=2018-06-21&' +
+          'from=2018-10-21&' +
           'sortBy=publishedAt&' +
           'language=en&' +
-          'apiKey=16ad35cdcef340e9bd1565c244e4ff1f';
+           myKey;
 
 var urlArray = [url, url2];
 
@@ -60,7 +61,8 @@ $(document).ready(function(){
 //THE .APPEND() AND .PREPEND() METHODS WERE CAUSING IT TO LOAD ONE OF THE SETS
 //SETS OF ARTICLES TWICE. WEIRD. I HAD TO USE .HTML() OR .EMPTY().APPEND(html)
 
-            }
+}
+
       });
     }
 
