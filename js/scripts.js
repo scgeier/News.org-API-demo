@@ -1,19 +1,20 @@
-console.log('scripts loaded');
-var mykey = config.MY_KEY;
+
+var myKey = config.MY_KEY;
+
 //LET'S TRY LOADING BOTH URLS IN A SINGLE AJAX CALL!
 var url = 'https://newsapi.org/v2/everything?' +
           'q=LeBron+James&' +
           'from=2018-10-21&' +
           'sortBy=popularity&' +
           'language=en&' +
-           myKey;
+           'apiKey=' + myKey;
 
 var url2 = 'https://newsapi.org/v2/everything?' +
           'q=Beatles+Lennon+McCartney&' +
           'from=2018-10-21&' +
           'sortBy=publishedAt&' +
           'language=en&' +
-           myKey;
+          'apiKey=' + myKey;
 
 var urlArray = [url, url2];
 
